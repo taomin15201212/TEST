@@ -1,0 +1,209 @@
+<!DOCTYPE HTML>
+<HTML>
+
+<HEAD>
+    <meta charset="utf-8">
+    <meta name="viewport" Content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalabel=0" />
+    <meta name="format-detection" content="telephone=no">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="apple-touch-icon-precomposed" href="~/Contentimages/apple-touch-icon-114x114.png">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/common.css">
+    <link type="text/css" rel="stylesheet" href="css/qubannerestion.css">
+    <title>驾校一点通</title>
+    <style type="text/css">
+    .question .item a:hover{ background: #fff !important}
+    </style>
+</HEAD>
+
+<BODY>
+    
+    <div class="top">
+        <div class="logo">
+            <a href="/"><img src="http://j2.58cdn.com.cn/jxedt/m/kaoshi/images/logo.png" width="100" height="25"></a>
+        </div>
+        <div class="topr top_tiban" id="btn_answercard"></div>
+        <div class="clear"></div>
+    </div>
+    <div class="nav">
+        <a href="/">首页</a> &gt; <a href="/mnks/ckm1/">小车 科目一</a> &gt; 顺序练习
+    </div>
+    <div class="question main" id="question_content">
+        <div class="title commpadding pt">1/1229 驾驶机动车在道路上违反道路交通安全法的行为，属于什么行为？</div>
+        
+        <div class="item" trueanswer="2">
+            
+        <a href="javascript:void(0)" answer="1" onclick="kslx.chooseoption(this)">
+            <div class="item_state">A</div>
+            <div class="item_con">违章行为</div>
+            <div class="clear"></div>
+        </a>
+
+        <a href="javascript:void(0)" answer="2" onclick="kslx.chooseoption(this)">
+            <div class="item_state">B</div>
+            <div class="item_con">违法行为</div>
+            <div class="clear"></div>
+        </a>
+
+        <a href="javascript:void(0)" answer="3" onclick="kslx.chooseoption(this)">
+            <div class="item_state">C</div>
+            <div class="item_con">过失行为</div>
+            <div class="clear"></div>
+        </a>
+
+        <a href="javascript:void(0)" answer="4" onclick="kslx.chooseoption(this)">
+            <div class="item_state">D</div>
+            <div class="item_con">违规行为</div>
+            <div class="clear"></div>
+        </a>
+
+        </div>
+    </div>
+    <div class="main best_explain" id="question_best_explain" style="display: none;">
+        <div class="best_explaintitle"></div>
+        <div class="best_explaincon pt">“违反道路交通安全法”，违反法律法规即为违法行为。官方已无违章/违规的说法。</div>
+    </div>
+    <div class="main chat commpadding pt" id="commemt_list_main" style="display: block; overflow: hidden;">
+        <div class="chattitle">网友分析</div>
+        <ul class="chatitem pt" id="commemt_list">
+        <li>
+            <div class="face"><img src="http://j2.58cdn.com.cn/jxedt/mobile/mnks/images/uface/3.png"></div>
+            <div class="info">
+                <div class="name">0012</div>
+                <div class="con mt">现在没有违章了吗  ？？都是违法！！</div>
+                <div class="dis mt">
+                    <span class="good" onclick="kslx.commentgood(this)">957</span>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="line mt"></div>
+        </li>
+
+        <li>
+            <div class="face"><img src="http://j2.58cdn.com.cn/jxedt/mobile/mnks/images/uface/4.png"></div>
+            <div class="info">
+                <div class="name">sanmaxin09</div>
+                <div class="con mt">“违反道路交通安全法”，明显的是违法，它都暗示了是“违法”行为。</div>
+                <div class="dis mt">
+                    <span class="good" onclick="kslx.commentgood(this)">16153</span>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="line mt"></div>
+        </li>
+
+        <li>
+            <div class="face"><img src="http://j2.58cdn.com.cn/jxedt/mobile/mnks/images/uface/5.png"></div>
+            <div class="info">
+                <div class="name">ukhjkjj</div>
+                <div class="con mt">再过几年就变成犯罪行为了</div>
+                <div class="dis mt">
+                    <span class="good" onclick="kslx.commentgood(this)">5904</span>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <div class="line mt"></div>
+        </li>
+    </ul>
+        <a id="btn_load_comment" href="javascript:void(0)" class=" btn loadmore mt">加载更多</a>
+    </div>
+    <div class="footbtns" id="footer_actions">
+        <a href="javascript:void(0)" class="pre">上一题</a>
+        <a href="javascript:void(0)" class="next">下一题</a>
+        <a href="javascript:void(0)" class="collect" id="btn_collect">收藏本题</a>
+        <a href="javascript:void(0)" class="explain" id="btn_explain_switch">本题解释</a>
+    </div>
+
+
+<script type="text/html" id="question_option_template">
+    <a href="javascript:void(0)" answer="{code}" onclick="{action}">
+        <div class="item_state">{show}</div>
+        <div class="item_con">{text}</div>
+        <div class="clear"></div>
+    </a>
+</script>
+<script type="text/html" id="question_template">
+    <div class="title commpadding pt">{ix}/{total} {question}</div>
+    {question_pic_template}
+    <div class="item" trueanswer="{trueanswer}">
+        {question_options}
+    </div>
+</script>
+<script type="text/html" id="question_best_explain_template">
+    <div class="best_explaintitle"></div>
+    <div class="best_explaincon pt">{best_explain}</div>
+</script>
+<script type="text/html" id="comment_template">
+    <li>
+        <div class="face"><img src="{face}"/></div>
+        <div class="info">
+            <div class="name">{u}</div>
+            <div class="con mt">{c}</div>
+            <div class="dis mt">
+                <span class="good" onclick="kslx.commentgood(this)">{t}</span>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="line mt"></div>
+    </li>
+</script>
+<script type="text/html" id="tiban_template">
+    <div id="div_answercard" class="move-tiban">
+        <div class="main">
+            <div class="result">
+                <div class="left">
+                    <span class="font">答对</span><span class="right_num">{right_num}</span>
+                    <span class="font">答错</span><span class="error_num">{error_num}</span>
+                    <span class="font">未答</span><span class="no_num">{no_num}</span>
+                </div>
+                <div class="right">
+                    <span class="pic"><img src="http://j2.58cdn.com.cn/jxedt/m/kaoshi/images/delete.png">清空</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="tiban">
+                <div style="height: 280px; overflow: auto; overflow-x: hidden">
+                    <ul id="web_tiban">
+                        {timulist}
+                    </ul>
+                </div>
+            </div>
+            <div class="skip">
+                <span class="kstz">快速跳转至</span>
+                <span class="line"><input style="border: none; width: 90%" type="tel"/></span>
+                <span class="btn cern_btn">确定</span>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/html" id="tiban_template_item">
+    <li class="{color}" onclick="kslx.jump({ix})">{show}</li>
+</script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/esl_zepto.js"></script>
+<script type="text/javascript" src="js/exam.js"></script>
+
+<script>
+    $(function() {
+        $("body").append("<div id='ap_goto_top'></div>");
+        $("#ap_goto_top").click(function() {
+            window.scrollTo(0, 0)
+        });
+        var basebodyheight = $(document).height();
+        $(window).scroll(function() {
+            var scrollTop = $(this).scrollTop();
+            var ap_goto_top = $("#ap_goto_top");
+            if (scrollTop > 800) {
+                $(ap_goto_top).addClass("show")
+            } else {
+                $(ap_goto_top).removeClass("show")
+            }
+        })
+    });
+</script>
+</BODY>
+
+</HTML>
